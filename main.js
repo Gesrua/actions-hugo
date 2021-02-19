@@ -35,5 +35,6 @@ docker(['run', '--rm' , '-i',
   '-v', `${process.env.GITHUB_WORKSPACE}/${core.getInput('target')}:/target`,
   '-e', `HUGO_ENV=${core.getInput('env')}`,
   '-e', `HUGO_PANDOC=${core.getInput('pandoc_command')}`,
+  '--entrypoint', '/bin/sh',
   `klakegg/hugo:${label}`]
   .concat(command));
